@@ -11,8 +11,10 @@ namespace AdminPanelApp.Data
         {
         }
 
-        //public DbSet<User> Users { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<Book> Books { get; set; }
-        //public DbSet<Order> Orders { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+
     }
 }

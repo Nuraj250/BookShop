@@ -1,5 +1,39 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model IEnumerable<AdminPanelApp.Models.User>
+
+<h2>Manage Users</h2>
+<a href="@Url.Action("AddUser", "Admin")" class="btn btn-primary mb-3">Add New User</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@user.ImagePath" alt="@user.Name" width="50" height="50" />
+                </td>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+                <td>@user.PhoneNumber</td>
+                <td>@user.Role</td>
+                <td>
+                    <a href="@Url.Action("AddUser", "Admin", new { id = user.Id })" class="btn btn-sm btn-warning">
+                        <i class="fa fa-edit"></i> Edit
+                    </a>
+                    <a href="@Url.Action("DeleteUser", "Admin", new { id = user.Id })" class="btn btn-sm btn-danger">
+                        <i class="fa fa-trash"></i> Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

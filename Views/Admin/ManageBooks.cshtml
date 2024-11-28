@@ -1,9 +1,43 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-    <div class="text-center">
-        <h1 class="display-4">Welcome</h1>
-        <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    </div>
-}
+﻿@model IEnumerable<AdminPanelApp.Models.Book>
+
+<h2>Manage Books</h2>
+<a href="@Url.Action("AddBook", "Admin")" class="btn btn-primary mb-3">Add New Book</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>ISBN</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@book.ImagePath" alt="@book.Title" width="50" height="50" />
+                </td>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.ISBN</td>
+                <td>@book.Price.ToString("C")</td>
+                <td>@book.Quantity</td>
+                <td>@book.Status</td>
+                <td>
+                    <a href="@Url.Action("EditBook", "Admin", new { id = book.Id })" class="btn btn-sm btn-warning">
+                        <i class="fa fa-edit"></i> Edit
+                    </a>
+                    <a href="@Url.Action("DeleteBook", "Admin", new { id = book.Id })" class="btn btn-sm btn-danger">
+                        <i class="fa fa-trash"></i> Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
