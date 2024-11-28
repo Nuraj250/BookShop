@@ -21,5 +21,9 @@ namespace AdminPanelApp.Controllers
         {
             return RedirectToAction("Index", "Users");
         }
+        public IActionResult ManageOrders()
+        {
+            return RedirectToAction("Index", "Order");
+        }
     }
 }

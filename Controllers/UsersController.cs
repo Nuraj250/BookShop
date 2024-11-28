@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using AdminPanelApp.Models;
 using AdminPanelApp.Data;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace AdminPanelApp.Controllers
 {
@@ -17,7 +18,7 @@ namespace AdminPanelApp.Controllers
         public IActionResult Index()
         {
             var users = _context.Users.ToList();
-            return View(users);
+            return View("ManageUsers", users);
         }
 
         // Add/Edit User (GET)

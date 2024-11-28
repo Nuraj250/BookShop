@@ -1,0 +1,36 @@
+﻿@model AdminPanelApp.Models.Order
+
+<h2>Edit Order</h2>
+
+<form asp-action="Edit" asp-controller="Order" method="post">
+    <input type="hidden" asp-for="OrderId" />
+
+<h2>Edit Order</h2>
+
+<form asp-action="Edit" asp-controller="Order" method="post">
+    <input type="hidden" asp-for="OrderId" />
+   <div class="form-group">
+    <label asp-for="PaymentStatus"></label>
+    <select asp-for="PaymentStatus" class="form-control">
+    <select asp-for="PaymentStatus" class="form-control">
+                    @foreach (var status in ViewBag.PaymentStatusList as List<string>)
+        {
+            <!option value="@status" @(Model.PaymentStatus == status ? "selected" : "")>@status</!option>
+        }
+    </select>
+    </select>
+</div>
+<div class="form-group">
+    <label asp-for="OrderStatus"></label>
+    <select asp-for="OrderStatus" class="form-control">
+        @foreach (var status in new[] { "Order Placed", "Delivering", "Delivered" })
+        {
+                    <!option value="@status" @(Model.OrderStatus == status ? "selected" : "")>@status</!option>
+        }
+        </select>
+</div>
+    <button type="submit" class="btn btn-success mt-3">Save</button>
+</form>
+
+    <button type="submit" class="btn btn-success mt-3">Save</button>
+</form>
