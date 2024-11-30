@@ -17,7 +17,7 @@ namespace AdminPanelApp.Controllers
         public IActionResult Index()
         {
             var orders = _context.Orders.ToList();
-            return View("ManageOrder", orders);
+            return View("OrderView", orders);
         }
 
         // View a single order and its details
@@ -90,6 +90,35 @@ namespace AdminPanelApp.Controllers
             }
             return View(order);
         }
+
+        // Update Order Status (POST) from Details Page
+        [HttpPost]
+        public IActionResult UpdateStatus(Guid OrderId, string PaymentStatus, string OrderStatus)
+        {
+            try
+            {
+                var order = _context.Orders.FirstOrDefault(o => o.OrderId == OrderId);
+                if (order == null)
+                {
+                    TempData["ErrorMessage"] = "Order not found!";
+                    return RedirectToAction("Index");
+                }
+
+                // Update payment and delivery statuses
+                order.PaymentStatus = PaymentStatus;
+                order.OrderStatus = OrderStatus;
+                _context.SaveChanges();
+
+                TempData["SuccessMessage"] = "Order status updated successfully!";
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = $"An error occurred while updating the order status: {ex.Message}";
+            }
+
+            return RedirectToAction("ViewOrder", new { id = OrderId });
+        }
+
 
         // Delete Order
         public IActionResult Delete(Guid id)

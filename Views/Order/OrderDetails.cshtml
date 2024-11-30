@@ -1,0 +1,57 @@
+﻿@model dynamic
+
+<h2>Order Details</h2>
+
+<div>
+    <h4>Order Information</h4>
+    <p><strong>Order ID:</strong> @Model.OrderId</p>
+    <p><strong>Customer ID:</strong> @Model.CustomerId</p>
+    <p><strong>Date:</strong> @Model.Date.ToShortDateString()</p>
+    <p><strong>Total Price:</strong> @Model.Price.ToString("C")</p>
+</div>
+
+<div>
+    <h4>Order Items</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderDetails)
+            {
+                <tr>
+                    <td>@item.ProductId</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Price.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h4>Update Status</h4>
+    <form asp-action="UpdateStatus" asp-controller="Order" method="post">
+        <input type="hidden" name="OrderId" value="@Model.OrderId" />
+        <div class="form-group">
+            <label for="PaymentStatus">Payment Status</label>
+            <select name="PaymentStatus" class="form-control">
+                <!option value="Pending" @(Model.PaymentStatus == "Pending" ? "selected" : "")>Pending</!option>
+                <!option value="Paid" @(Model.PaymentStatus == "Paid" ? "selected" : "")>Paid</!option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="OrderStatus">Order Status</label>
+            <select name="OrderStatus" class="form-control">
+                <!option value="Order Placed" @(Model.OrderStatus == "Order Placed" ? "selected" : "")>Order Placed</!option>
+                <!option value="Delivering" @(Model.OrderStatus == "Delivering" ? "selected" : "")>Delivering</!option>
+                <!option value="Delivered" @(Model.OrderStatus == "Delivered" ? "selected" : "")>Delivered</!option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Status</button>
+    </form>
+</div>
