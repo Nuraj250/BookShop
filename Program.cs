@@ -85,7 +85,7 @@ app.UseAuthorization();  // Add Authorization Middleware
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Account}/{action=Login}/{id?}"); // Redirect to Login if no user is authenticated
+    pattern: "{controller=Account}/{action=Auth}/{id?}"); // Redirect to Login if no user is authenticated
 
 app.MapRazorPages();
 

@@ -1,4 +1,4 @@
-﻿/*:root {
+﻿:root {
     --primary-color: #4EA685;
     --secondary-color: #57B894;
     --black: #000000;
@@ -243,11 +243,11 @@ body {
 .container.sign-up .text.sign-up p,
 .container.sign-up .img.sign-up img {
     transform: translateX(0);
-}*/
+}
 
 /* BACKGROUND */
 
-/*.container::before {
+.container::before {
     content: "";
     position: absolute;
     top: 0;
@@ -271,11 +271,11 @@ body {
 .container.sign-up::before {
     transform: translate(100%, 0);
     right: 50%;
-}*/
+}
 
 /* RESPONSIVE */
 
-/*@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 425px) {
 
     .container::before,
     .container.sign-in::before,
@@ -286,13 +286,13 @@ body {
         z-index: 0;
         transform: none;
         right: 0;
-    }*/
+    }
 
     /* .container.sign-in .col.sign-up {
         transform: translateY(100%);
     } */
 
-    /*.container.sign-in .col.sign-in,
+    .container.sign-in .col.sign-in,
     .container.sign-up .col.sign-up {
         transform: translateY(0);
     }
@@ -341,34 +341,4 @@ body {
             margin: .5rem;
             font-size: 2rem;
         }
-}*/
-/* Add your full CSS code from the chat here */
-:root {
-    --primary-color: #4EA685;
-    --secondary-color: #57B894;
-    --black: #000000;
-    --white: #ffffff;
-    --gray: #efefef;
-    --gray-2: #757575;
-    --facebook-color: #4267B2;
-    --google-color: #DB4437;
-    --twitter-color: #1DA1F2;
-    --insta-color: #E1306C;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
-
-* {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html,
-body {
-    height: 100vh;
-    overflow: hidden;
-}
-
-/* Full CSS is already provided */
