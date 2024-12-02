@@ -23,6 +23,6 @@ namespace AdminPanelApp.Models
 
         private string OrderStatus { get; set; } // Order Placed, Delivering, Delivered
 
-        private virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
     }
 }
