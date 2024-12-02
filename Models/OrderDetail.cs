@@ -19,6 +19,6 @@ namespace AdminPanelApp.Models
         [Required]
         private decimal Price { get; set; }
 
-        public virtual Order Order { get; set; }
+        private virtual Order Order { get; set; }
     }
 }
