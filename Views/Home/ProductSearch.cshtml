@@ -1,0 +1,160 @@
+﻿@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml"; // Use the new User Layout
+}
+<link rel="stylesheet" href="~/css/productView.css">
+
+        <div class=" container-fluid row mt-7 mb-auto">
+            <!-- Sidebar Filters -->
+            <aside class="col-lg-3">
+                <div class="filter-section">
+                    <h5 class="filter-title">
+                <a class="text-decoration-none text-dark" data-bs-toggle="collapse" href="#categoriesCollapse" role="button" aria-expanded="false" aria-controls="categoriesCollapse">
+                    Categories <i class="bi bi-chevron-down"></i>
+                </a>
+                    </h5>
+            <div class="collapse show" id="categoriesCollapse">
+
+                    <ul class="list-unstyled">
+                        <li><a href="#">Arts & Photography</a></li>
+                        <li><a href="#">Biography</a></li>
+                        <li><a href="#">Health</a></li>
+                        <li><a href="#">Romance</a></li>
+                        <li><a href="#">History</a></li>
+                    </ul>
+                    </div>
+                </div>
+        <div class="filter-section">
+            <h5 class="filter-title">Filter by Price</h5>
+            <input type="range" min="0" max="100" class="form-range">
+            <button class="btn btn-primary mt-2 w-100">Apply</button>
+        </div>
+        <!-- Filter by Review -->
+        <div class="filter-section">
+            <h5 class="filter-title">By Review</h5>
+            <div>
+                <input type="checkbox"> ★★★★★<br>
+                <input type="checkbox"> ★★★★☆<br>
+                <input type="checkbox"> ★★★☆☆<br>
+            </div>
+        </div>
+            </aside>
+
+            <!-- Product Listing -->
+            <section class="col-lg-9">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2>Showing all 20 results</h2>
+                    <select class="form-select w-auto">
+                        <option>Default sorting</option>
+                        <option>Sort by popularity</option>
+                        <option>Sort by average rating</option>
+                        <option>Sort by latest</option>
+                        <option>Sort by price: low to high</option>
+                        <option>Sort by price: high to low</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <!-- Product Card Example -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow-sm product-card">
+                            <img src="/images/book1.jpg" class="card-img-top" alt="Product">
+                            <div class="card-body">
+                                <h5 class="card-title">Book Title</h5>
+                                <p class="card-text">Paperback - $12.99</p>
+                                <a href="#" class="btn btn-primary">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow-sm product-card">
+                            <img src="/images/book2.jpg" class="card-img-top" alt="Product">
+                            <div class="card-body">
+                                <h5 class="card-title">Another Book Title</h5>
+                                <p class="card-text">Hardcover - $15.99</p>
+                                <a href="#" class="btn btn-primary">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-md-4 mb-4">
+                        <div class="card shadow-sm product-card">
+                            <img src="/images/book1.jpg" class="card-img-top" alt="Product">
+                            <div class="card-body">
+                                <h5 class="card-title">Book Title</h5>
+                                <p class="card-text">Paperback - $12.99</p>
+                                <a href="#" class="btn btn-primary">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow-sm product-card">
+                            <img src="/images/book2.jpg" class="card-img-top" alt="Product">
+                            <div class="card-body">
+                                <h5 class="card-title">Another Book Title</h5>
+                                <p class="card-text">Hardcover - $15.99</p>
+                                <a href="#" class="btn btn-primary">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm product-card">
+                    <img src="/images/book2.jpg" class="card-img-top" alt="Product">
+                    <div class="card-body">
+                        <h5 class="card-title">Another Book Title</h5>
+                        <p class="card-text">Hardcover - $15.99</p>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm product-card">
+                    <img src="/images/book2.jpg" class="card-img-top" alt="Product">
+                    <div class="card-body">
+                        <h5 class="card-title">Another Book Title</h5>
+                        <p class="card-text">Hardcover - $15.99</p>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm product-card">
+                    <img src="/images/book2.jpg" class="card-img-top" alt="Product">
+                    <div class="card-body">
+                        <h5 class="card-title">Another Book Title</h5>
+                        <p class="card-text">Hardcover - $15.99</p>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm product-card">
+                    <img src="/images/book2.jpg" class="card-img-top" alt="Product">
+                    <div class="card-body">
+                        <h5 class="card-title">Another Book Title</h5>
+                        <p class="card-text">Hardcover - $15.99</p>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm product-card">
+                    <img src="/images/book2.jpg" class="card-img-top" alt="Product">
+                    <div class="card-body">
+                        <h5 class="card-title">Another Book Title</h5>
+                        <p class="card-text">Hardcover - $15.99</p>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm product-card">
+                    <img src="/images/book2.jpg" class="card-img-top" alt="Product">
+                    <div class="card-body">
+                        <h5 class="card-title">Another Book Title</h5>
+                        <p class="card-text">Hardcover - $15.99</p>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+                    <!-- Duplicate this block for more products -->
+                </div>
+            </section>
+        </div>

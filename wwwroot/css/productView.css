@@ -1,0 +1,48 @@
+﻿.container-fluid {
+    margin-top: 125px; /* Adjust this value as needed */
+}
+
+.filter-section {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+    .filter-section h5 {
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+}
+
+.product-card img {
+    height: 250px;
+    object-fit: cover;
+}
+
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+.filter-title {
+    font-weight: bold;
+}
+
+.filter-box {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}

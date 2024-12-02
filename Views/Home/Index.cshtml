@@ -1,8 +1,371 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_UserLayout.cshtml"; // Use the new User Layout
 }
+<link rel="stylesheet" href="~/css/styles.css">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<section class="hero-section vh-96 d-flex align-items-center justify-content-center" style="background-color: #f9f9f9;">
+    <div id="heroCarousel" class="carousel slide w-100" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <img src="/images/c1.webp" class="d-block w-100 vh-100" alt="Slide 1" style="object-fit: cover;">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="display-4 fw-bold">Discover the Best Books</h1>
+                    <p class="lead">Find amazing reads to spark your imagination.</p>
+                    <a href="#" class="btn btn-primary btn-lg">Explore Now</a>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <img src="/images/c2.png" class="d-block w-100 vh-100" alt="Slide 2" style="object-fit: cover;">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="display-4 fw-bold">Exclusive Offers</h1>
+                    <p class="lead">Grab your favorite books at unbeatable prices.</p>
+                    <a href="#" class="btn btn-success btn-lg">Shop Now</a>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+                <img src="/images/c2.png" class="d-block w-100 vh-100" alt="Slide 3" style="object-fit: cover;">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="display-4 fw-bold">Books for Every Mood</h1>
+                    <p class="lead">Explore our wide collection of genres and categories.</p>
+                    <a href="#" class="btn btn-warning btn-lg">Browse Categories</a>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+<section class="featured-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-left mb-4">Featured Categories</h2>
+
+            </div>   
+            <div class ="col text-end">
+                <a href="#" class=" text-right btn btn-link">All Categories &gt;</a>
+
+            </div>
+
+        </div>    
+        <div class="row text-center">
+            <div class="col-md-3">
+                <div class="card shadow-sm category-card">
+                    <div class="card-body">
+                        <div class="icon-container mb-3">
+                            <i class="bi bi-camera" style="font-size: 2rem; color: #4EA685;"></i>
+                        </div>
+                        <h5 class="card-title">Arts & Photography</h5>
+                        <a href="#" class="btn btn-outline-primary">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm category-card">
+                    <div class="card-body">
+                        <div class="icon-container mb-3">
+                            <i class="bi bi-cup-straw" style="font-size: 2rem; color: #4EA685;"></i>
+                        </div>
+                        <h5 class="card-title">Food & Drink</h5>
+                        <a href="#" class="btn btn-outline-primary">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm category-card">
+                    <div class="card-body">
+                        <div class="icon-container mb-3">
+                            <i class="bi bi-heart" style="font-size: 2rem; color: #4EA685;"></i>
+                        </div>
+                        <h5 class="card-title">Romance</h5>
+                        <a href="#" class="btn btn-outline-primary">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm category-card">
+                    <div class="card-body">
+                        <div class="icon-container mb-3">
+                            <i class="bi bi-heart-pulse" style="font-size: 2rem; color: #4EA685;"></i>
+                        </div>
+                        <h5 class="card-title">Health</h5>
+                        <a href="#" class="btn btn-outline-primary">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bestselling-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-left mb-4">Bestselling Books</h2>
+
+            </div>
+            <div class="col text-end">
+                <a href=" /Home/ProductSearch" " class=" text-right btn btn-link">View All &gt;</a>
+
+            </div>
+            </div>
+        <div class="row text-center">
+            <div class="col-md-3">
+                <div class="card shadow-sm bestseller-card">
+                    <img src="/images/book1.jpg" class="card-img-top" alt="Book 1" />
+                    <div class="card-body">
+                        <h5 class="card-title">Angry God (All Saints High Book 3)</h5>
+                        <p class="card-text text-muted">L.J. Shen</p>
+                        <p class="card-text"><strong>$1.30</strong> <span class="text-decoration-line-through">$1.75</span></p>
+                        <a href="#" class="btn btn-outline-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm bestseller-card">
+                    <img src="/images/book2.jpg" class="card-img-top" alt="Book 2" />
+                    <div class="card-body">
+                        <h5 class="card-title">Dark in Death: An Eve Dallas Novel</h5>
+                        <p class="card-text text-muted">J. D. Robb</p>
+                        <p class="card-text"><strong>$14.20</strong></p>
+                        <a href="#" class="btn btn-outline-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm bestseller-card">
+                    <img src="/images/book3.jpg" class="card-img-top" alt="Book 3" />
+                    <div class="card-body">
+                        <h5 class="card-title">The Last Sister (Columbia River Book 1)</h5>
+                        <p class="card-text text-muted">Conn Iggulden</p>
+                        <p class="card-text"><strong>$29.59 - $59.95</strong></p>
+                        <a href="#" class="btn btn-outline-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm bestseller-card">
+                    <img src="/images/book4.jpg" class="card-img-top" alt="Book 4" />
+                    <div class="card-body">
+                        <h5 class="card-title">Think Like a Monk</h5>
+                        <p class="card-text text-muted">Luanne Rice</p>
+                        <p class="card-text"><strong>$1.75</strong></p>
+                        <a href="#" class="btn btn-outline-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-3">
+                <div class="card shadow-sm bestseller-card">
+                    <img src="/images/book1.jpg" class="card-img-top" alt="Book 1" />
+                    <div class="card-body">
+                        <h5 class="card-title">Angry God (All Saints High Book 3)</h5>
+                        <p class="card-text text-muted">L.J. Shen</p>
+                        <p class="card-text"><strong>$1.30</strong> <span class="text-decoration-line-through">$1.75</span></p>
+                        <a href="#" class="btn btn-outline-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm bestseller-card">
+                    <img src="/images/book2.jpg" class="card-img-top" alt="Book 2" />
+                    <div class="card-body">
+                        <h5 class="card-title">Dark in Death: An Eve Dallas Novel</h5>
+                        <p class="card-text text-muted">J. D. Robb</p>
+                        <p class="card-text"><strong>$14.20</strong></p>
+                        <a href="#" class="btn btn-outline-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm bestseller-card">
+                    <img src="/images/book3.jpg" class="card-img-top" alt="Book 3" />
+                    <div class="card-body">
+                        <h5 class="card-title">The Last Sister (Columbia River Book 1)</h5>
+                        <p class="card-text text-muted">Conn Iggulden</p>
+                        <p class="card-text"><strong>$29.59 - $59.95</strong></p>
+                        <a href="#" class="btn btn-outline-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm bestseller-card">
+                    <img src="/images/book4.jpg" class="card-img-top" alt="Book 4" />
+                    <div class="card-body">
+                        <h5 class="card-title">Think Like a Monk</h5>
+                        <p class="card-text text-muted">Luanne Rice</p>
+                        <p class="card-text"><strong>$1.75</strong></p>
+                        <a href="#" class="btn btn-outline-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="deals-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-left mb-4">Deals of the Week</h2>
+
+            </div>
+            <div class="col text-end">
+                <a href="#" class=" text-right btn btn-link">View All &gt;</a>
+
+            </div>
+            </div>
+        <div id="dealsCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="deal-card shadow-sm">
+                                <img src="/images/book2.jpg" class="img-fluid w-100" alt="Deal 1">
+                                <div class="deal-info">
+                                    <h5>Winter Garden</h5>
+                                    <p>Only $11.99</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="deal-card shadow-sm">
+                                <img src="/images/book2.jpg" class="img-fluid w-100" alt="Deal 2">
+                                <div class="deal-info">
+                                    <h5>Unlimited</h5>
+                                    <p>Only $9.99</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="deal-card shadow-sm">
+                                <img src="/images/book2.jpg" class="img-fluid w-100" alt="Deal 3">
+                                <div class="deal-info">
+                                    <h5>The Great Adventure</h5>
+                                    <p>Only $14.99</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="deal-card shadow-sm">
+                                <img src="/images/book2.jpg" class="img-fluid w-100" alt="Deal 4">
+                                <div class="deal-info">
+                                    <h5>Midnight Stories</h5>
+                                    <p>Only $7.99</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Carousel Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#dealsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#dealsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<section class="new-releases py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-left mb-4">New Releases</h2>
+
+            </div>
+            <div class="col text-end">
+                <a href="#" class=" text-right btn btn-link">View All &gt;</a>
+
+            </div>
+        </div>
+        <div class="row">
+            <!-- Featured Book -->
+            <div class="col-lg-4">
+                <div class="featured-book shadow-sm p-3 mb-5 bg-white rounded">
+                    <img src="/images/featured-book.jpg" class="img-fluid" alt="Featured Book">
+                    <div class="featured-book-info mt-3 text-center">
+                        <h3>Get Extra <span class="text-danger">Sale -25%</span></h3>
+                        <p>On order over $100</p>
+                        <a href="#" class="btn btn-primary">View More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Other Books -->
+            <div class="col-lg-8">
+                <div class="row justify-content-center">
+                    <!-- Book Item -->
+                    <div class="col-md-4 mb-4">
+                        <div class="book-item shadow-sm p-3 bg-white rounded">
+                            <img src="/images/book1.jpg" class="img-fluid mb-2" alt="Book 1">
+                            <h5 class="book-title">All You Can Ever Know</h5>
+                            <p class="book-price text-muted">Hardcover - $14.20</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="book-item shadow-sm p-3 bg-white rounded">
+                            <img src="/images/book2.jpg" class="img-fluid mb-2" alt="Book 2">
+                            <h5 class="book-title">Broken Faith</h5>
+                            <p class="book-price text-muted">Paperback - $10.29</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="book-item shadow-sm p-3 bg-white rounded">
+                            <img src="/images/book3.jpg" class="img-fluid mb-2" alt="Book 3">
+                            <h5 class="book-title">Eternity Springs</h5>
+                            <p class="book-price text-muted">Paperback - $6.99</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="book-item shadow-sm p-3 bg-white rounded">
+                            <img src="/images/book1.jpg" class="img-fluid mb-2" alt="Book 1">
+                            <h5 class="book-title">All You Can Ever Know</h5>
+                            <p class="book-price text-muted">Hardcover - $14.20</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="book-item shadow-sm p-3 bg-white rounded">
+                            <img src="/images/book2.jpg" class="img-fluid mb-2" alt="Book 2">
+                            <h5 class="book-title">Broken Faith</h5>
+                            <p class="book-price text-muted">Paperback - $10.29</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="book-item shadow-sm p-3 bg-white rounded">
+                            <img src="/images/book3.jpg" class="img-fluid mb-2" alt="Book 3">
+                            <h5 class="book-title">Eternity Springs</h5>
+                            <p class="book-price text-muted">Paperback - $6.99</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+

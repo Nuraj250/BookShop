@@ -1,6 +1,8 @@
 using AdminPanelApp.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,17 +24,43 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+// Configure JWT Authentication
+var jwtKey = builder.Configuration["Jwt:Key"] ?? "ThisIsASecretKeyForJwt"; // Replace with your secret key
+var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? "localhost";
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = "JwtBearer";
+    options.DefaultChallengeScheme = "JwtBearer";
+})
+.AddJwtBearer("JwtBearer", options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtIssuer,
+        ValidAudience = jwtIssuer,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
+    };
+});
+
+builder.Services.AddControllersWithViews();
+
 var app = builder.Build();
 
-// Seed Roles (Admin, Employee)
+// Seed Roles and Admin User
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     try
     {
         var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+        var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
 
-        // Create roles if they don't exist
+        // Create roles
         var roles = new[] { "Admin", "Employee" };
         foreach (var role in roles)
         {
@@ -42,16 +70,13 @@ using (var scope = app.Services.CreateScope())
             }
         }
 
-        // Optionally: Seed an Admin user
-        var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
-        var adminEmail = "admin@example.com"; // Change as required
-        var adminPassword = "Admin@1234";    // Change as required
-
+        // Create admin user
+        var adminEmail = "admin@example.com";
+        var adminPassword = "Admin@1234";
         if (await userManager.FindByEmailAsync(adminEmail) == null)
         {
             var adminUser = new IdentityUser { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true };
             var result = await userManager.CreateAsync(adminUser, adminPassword);
-
             if (result.Succeeded)
             {
                 await userManager.AddToRoleAsync(adminUser, "Admin");
@@ -64,7 +89,7 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-// Configure the HTTP request pipeline
+// Middleware
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -80,12 +105,13 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication(); // Add Authentication Middleware
-app.UseAuthorization();  // Add Authorization Middleware
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Account}/{action=Auth}/{id?}"); // Redirect to Login if no user is authenticated
+    pattern: "{controller=Home}/{action=Index}/{id?}"); // Redirect to User Homepage
+
 
 app.MapRazorPages();
 

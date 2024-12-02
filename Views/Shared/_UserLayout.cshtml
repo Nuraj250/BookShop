@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookworm</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+</head>
+<body>
+    <header class="navbar navbar-expand-lg navbar-light bg-light shadow">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="/images/logo.png" alt="Bookworm Logo" width="120" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Categories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+                <form class="d-flex ms-3">
+                    <input class="form-control me-2" type="search" placeholder="Search books" />
+                    <button class="btn btn-outline-dark" type="submit">Search</button>
+                </form>
+                <!-- Login Button or User Dropdown -->
+                <div class="ms-3">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="dropdown">
+                            <button class="btn btn-outline-dark dropdown-toggle" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-circle"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                                <li><a class="dropdown-item" href="/Cart">Cart</a></li>
+                                <li><a class="dropdown-item" href="/Account/Logout">Logout</a></li>
+                            </ul>
+                        </div>
+                    }
+                    else
+                    {
+                        <a href="/Account/Auth" class="btn btn-outline-dark">Let's Start</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mt-4">
+        @RenderBody()
+    </main>
+    <footer class="footer-section py-5 bg-light text-dark">
+        <div class="container">
+            <!-- Newsletter Section -->
+            <div class="row mb-4 text-center">
+                <div class="col-12">
+                    <h3>Join Our Newsletter</h3>
+                    <p>Signup to be the first to hear about exclusive deals, special offers, and upcoming collections.</p>
+                    <div class="d-flex justify-content-center">
+                        <input type="email" class="form-control w-50 me-2" placeholder="Enter email for weekly newsletter" />
+                        <button class="btn btn-dark">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <!-- Footer Links Section -->
+            <div class="row">
+                <!-- Address Column -->
+                <div class="col-md-3 mb-4">
+                    <h5>Bookworm</h5>
+                    <p>1418 River Drive, Suite 35 Cottonhall, CA 9622, United States</p>
+                    <p>Email: sale@bookworm.com</p>
+                    <p>Phone: +1 246-345-0695</p>
+                    <div class="social-icons">
+                        <a href="#" class="me-2"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="me-2"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="me-2"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <!-- Explore Column -->
+                <div class="col-md-3 mb-4">
+                    <h5>Explore</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-dark">About us</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Sitemap</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Bookmarks</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Sign in/Join</a></li>
+                    </ul>
+                </div>
+                <!-- Customer Service Column -->
+                <div class="col-md-3 mb-4">
+                    <h5>Customer Service</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-dark">Help Center</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Returns</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Product Recalls</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Accessibility</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Contact Us</a></li>
+                    </ul>
+                </div>
+                <!-- Policy Column -->
+                <div class="col-md-3 mb-4">
+                    <h5>Policy</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-dark">Return Policy</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Terms of Use</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Security</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Footer Bottom -->
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2020 Bookworm. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <img src="/images/payment-icons.png" alt="Payment Methods" />
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
