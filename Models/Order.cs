@@ -5,23 +5,23 @@ namespace AdminPanelApp.Models
     public class Order
     {
         [Key]
-        private Guid OrderId { get; set; }
+        public Guid OrderId { get; set; }
 
         [Required]
-        private Guid CustomerId { get; set; }
+        public Guid CustomerId { get; set; }
 
         [Required]
-        private DateTime Date { get; set; }
+        public DateTime Date { get; set; }
 
         [Required]
-        private decimal Price { get; set; }
+        public decimal Price { get; set; }
 
         [Required]
-        private string PaymentMethod { get; set; }
+        public string PaymentMethod { get; set; }
 
-        private string PaymentStatus { get; set; } // Pending, Paid
+        public string PaymentStatus { get; set; } // Pending, Paid
 
-        private string OrderStatus { get; set; } // Order Placed, Delivering, Delivered
+        public string OrderStatus { get; set; } // Order Placed, Delivering, Delivered
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
     }

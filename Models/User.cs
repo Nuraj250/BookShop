@@ -7,29 +7,29 @@ namespace AdminPanelApp.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        private  Guid Id { get; set; }
+        public  Guid Id { get; set; }
 
         [Required]
         [StringLength(100)]
-        private  string Name { get; set; }
+        public  string Name { get; set; }
 
         [Required]
         [StringLength(100)]
-        private  string Email { get; set; }
+        public  string Email { get; set; }
 
         [Required]
-        private  string Password { get; set; }
+        public  string Password { get; set; }
 
         [StringLength(15)]
-        private  string PhoneNumber { get; set; }
+        public  string PhoneNumber { get; set; }
 
-        private  string Role { get; set; }
+        public  string Role { get; set; }
 
         // Path to the user image
-        private  string ImagePath { get; set; }
+        public  string ImagePath { get; set; }
 
-        private  DateTime CreatedAt { get; set; }
-        private  DateTime UpdatedAt { get; set; }
+        public  DateTime CreatedAt { get; set; }
+        public  DateTime UpdatedAt { get; set; }
     }
 
 }
