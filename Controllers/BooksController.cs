@@ -42,7 +42,7 @@ namespace AdminPanelApp.Controllers
             {
                 try
                 {
-                    if (book.Id == Guid.Empty) // Adding a new book
+                    if (book.Id == Guid.Empty) 
                     {
                         if (Image != null)
                             book.ImagePath = SaveImage(Image, "wwwroot/images/books");
@@ -52,7 +52,7 @@ namespace AdminPanelApp.Controllers
 
                         _context.Books.Add(book);
                     }
-                    else // Updating an existing book
+                    else 
                     {
                         var existingBook = _context.Books.FirstOrDefault(b => b.Id == book.Id);
                         if (existingBook == null)

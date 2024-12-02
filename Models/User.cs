@@ -3,33 +3,33 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AdminPanelApp.Models
 {
-    public class User
+    public  class User
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
+        private  Guid Id { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string Name { get; set; }
+        private  string Name { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string Email { get; set; }
+        private  string Email { get; set; }
 
         [Required]
-        public string Password { get; set; }
+        private  string Password { get; set; }
 
         [StringLength(15)]
-        public string PhoneNumber { get; set; }
+        private  string PhoneNumber { get; set; }
 
-        public string Role { get; set; }
+        private  string Role { get; set; }
 
         // Path to the user image
-        public string ImagePath { get; set; }
+        private  string ImagePath { get; set; }
 
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+        private  DateTime CreatedAt { get; set; }
+        private  DateTime UpdatedAt { get; set; }
     }
 
 }

@@ -5,20 +5,20 @@ namespace AdminPanelApp.Models
     public class OrderDetail
     {
         [Key]
-        public Guid Id { get; set; }
+        private Guid Id { get; set; }
 
         [Required]
-        public Guid OrderId { get; set; }
+        private Guid OrderId { get; set; }
 
         [Required]
-        public Guid ProductId { get; set; }
+        private Guid ProductId { get; set; }
 
         [Required]
-        public int Quantity { get; set; }
+        private int Quantity { get; set; }
 
         [Required]
-        public decimal Price { get; set; }
+        private decimal Price { get; set; }
 
-        public virtual Order Order { get; set; }
+        private virtual Order Order { get; set; }
     }
 }
