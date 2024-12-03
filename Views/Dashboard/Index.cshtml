@@ -1,25 +1,135 @@
-﻿@{
-    ViewData["Title"] = "Dashboard";
-}
+﻿
 
-<div class="container">
-    <h1>Welcome to the Admin Dashboard</h1>
+<div class="container mt-4">
+ 
+    <!-- Overview Cards -->
     <div class="row">
-        <div class="col-md-3">
-            <div class="card text-white bg-primary">
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-primary shadow">
                 <div class="card-body">
                     <h5 class="card-title">Books</h5>
-                    <p class="card-text">Manage all books here.</p>
+                    <p class="card-text">Total: 120</p>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card text-white bg-secondary">
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-secondary shadow">
                 <div class="card-body">
                     <h5 class="card-title">Orders</h5>
-                    <p class="card-text">Manage all orders here.</p>
+                    <p class="card-text">Pending: 45</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-success shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Users</h5>
+                    <p class="card-text">Active: 1,023</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-danger shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Revenue</h5>
+                    <p class="card-text">LKR 4,350,000</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h6 class="mb-0">Books Sold (Monthly)</h6>
+                </div>
+                <div class="card-body">
+                    <canvas id="booksChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-success text-white">
+                    <h6 class="mb-0">Revenue (Quarterly)</h6>
+                </div>
+                <div class="card-body">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Report Generator -->
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card shadow">
+                <div class="card-header bg-dark text-white">
+                    <h6 class="mb-0">Generate Report</h6>
+                </div>
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <label for="reportType" class="form-label">Select Report Type:</label>
+                        <select id="reportType" class="form-select w-50 mx-auto">
+                            <option value="books">Books Report</option>
+                            <option value="orders">Orders Report</option>
+                            <option value="users">Users Report</option>
+                            <option value="revenue">Revenue Report</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" onclick="generateReport()">Download Report</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Books Sold Chart
+    const booksChartCtx = document.getElementById('booksChart').getContext('2d');
+    new Chart(booksChartCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Books Sold',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: 'rgba(54, 162, 235, 0.6)'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+
+    // Revenue Chart
+    const revenueChartCtx = document.getElementById('revenueChart').getContext('2d');
+    new Chart(revenueChartCtx, {
+        type: 'line',
+        data: {
+            labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+            datasets: [{
+                label: 'Revenue (LKR)',
+                data: [1000000, 1200000, 1500000, 1650000],
+                backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+
+    // Report Generator Function
+    function generateReport() {
+        const reportType = document.getElementById("reportType").value;
+        alert(`Generating ${reportType} report...`);
+        // Add logic here to trigger the report generation and download process.
+    }
+</script>

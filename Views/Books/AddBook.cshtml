@@ -1,53 +1,94 @@
 ﻿@model AdminPanelApp.Models.Book
 
-<h2>@(Model.Id == Guid.Empty ? "Add New Book" : "Edit Book")</h2>
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+            <h3 class="text-center">@(Model.Id == Guid.Empty ? "Add New Book" : "Edit Book")</h3>
+        </div>
+        <div class="card-body">
+            <form asp-action="@(Model.Id == Guid.Empty ? "AddBook" : "EditBook")" asp-controller="Admin" method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="Id" />
+                <div class="row">
+                    <!-- Title -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Title" class="form-label"></label>
+                        <input asp-for="Title" class="form-control" placeholder="Enter book title" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
 
-<form asp-action="@(Model.Id == Guid.Empty ? "AddBook" : "EditBook")" asp-controller="Admin" method="post" enctype="multipart/form-data">
-    <input type="hidden" asp-for="Id" />
-    <div class="form-group">
-        <label asp-for="Title"></label>
-        <input asp-for="Title" class="form-control" />
-        <span asp-validation-for="Title" class="text-danger"></span>
+                    <!-- Author -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Author" class="form-label"></label>
+                        <input asp-for="Author" class="form-control" placeholder="Enter author's name" />
+                        <span asp-validation-for="Author" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- ISBN -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="ISBN" class="form-label"></label>
+                        <input asp-for="ISBN" class="form-control" placeholder="Enter ISBN" />
+                        <span asp-validation-for="ISBN" class="text-danger"></span>
+                    </div>
+
+                    <!-- Publisher -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Publisher" class="form-label"></label>
+                        <input asp-for="Publisher" class="form-control" placeholder="Enter publisher name" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Price -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Price" class="form-label"></label>
+                        <input asp-for="Price" class="form-control" placeholder="Enter price" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+
+                    <!-- Quantity -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Quantity" class="form-label"></label>
+                        <input asp-for="Quantity" class="form-control" placeholder="Enter quantity" />
+                        <span asp-validation-for="Quantity" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Status -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Status" class="form-label"></label>
+                        <select asp-for="Status" class="form-select">
+                            <option value="Available">Available</option>
+                            <option value="Out of Stock">Out of Stock</option>
+                        </select>
+                    </div>
+
+                    <!-- Published Date -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="PublishedDate" class="form-label"></label>
+                        <input asp-for="PublishedDate" type="date" class="form-control" />
+                    </div>
+                </div>
+
+                <!-- Book Image -->
+                <div class="mb-3">
+                    <label class="form-label">Book Image</label>
+                    <input type="file" name="Image" class="form-control" />
+                    @if (!string.IsNullOrEmpty(Model.ImagePath))
+                    {
+                        <div class="mt-3">
+                            <img src="@Model.ImagePath" alt="@Model.Title" class="img-thumbnail" style="max-width: 150px;" />
+                        </div>
+                    }
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success btn-lg">Save</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="Author"></label>
-        <input asp-for="Author" class="form-control" />
-        <span asp-validation-for="Author" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="ISBN"></label>
-        <input asp-for="ISBN" class="form-control" />
-        <span asp-validation-for="ISBN" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Publisher"></label>
-        <input asp-for="Publisher" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label asp-for="Price"></label>
-        <input asp-for="Price" class="form-control" />
-        <span asp-validation-for="Price" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Quantity"></label>
-        <input asp-for="Quantity" class="form-control" />
-        <span asp-validation-for="Quantity" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Status"></label>
-        <input asp-for="Status" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label asp-for="PublishedDate"></label>
-        <input asp-for="PublishedDate" type="date" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Book Image</label>
-        <input type="file" name="Image" class="form-control" />
-            @if (!string.IsNullOrEmpty(Model.ImagePath))
-            {
-                <img src="@Model.ImagePath" alt="@Model.Title" width="100" class="mt-3" />
-            }
-    </div>
-    <button type="submit" class="btn btn-success mt-3">Save</button>
-</form>
+</div>

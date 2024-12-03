@@ -1,7 +1,19 @@
 ﻿@model IEnumerable<AdminPanelApp.Models.Book>
 
 <h2>Manage Books</h2>
-<a href="@Url.Action("AddBook", "Admin")" class="btn btn-primary mb-3">Add New Book</a>
+<div class="row mb-3">
+    <div class="col-md-8">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for books..." id="searchInput" onkeyup="searchBooks()">
+            <span class="input-group-text">
+                <i class="fa fa-search"></i>
+            </span>
+        </div>
+    </div>
+    <div class="col-md-4 text-end">
+        <a href="@Url.Action("AddBook", "Books")" class="btn btn-primary">Add New Book</a>
+    </div>
+</div>
 
 <table class="table">
     <thead>
@@ -30,7 +42,7 @@
                 <td>@book.Quantity</td>
                 <td>@book.Status</td>
                 <td>
-                    <a href="@Url.Action("EditBook", "Admin", new { id = book.Id })" class="btn btn-sm btn-warning">
+                    <a href="@Url.Action("AddEdit", "Books", new { id = book.Id })" , new { id=book.Id })" class="btn btn-sm btn-warning">
                         <i class="fa fa-edit"></i> Edit
                     </a>
                     <a href="@Url.Action("DeleteBook", "Admin", new { id = book.Id })" class="btn btn-sm btn-danger">
